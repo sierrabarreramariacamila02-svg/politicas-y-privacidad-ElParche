@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad y Seguridad — El Parche (Proyecto Parche)</title>
+
+  <!-- Tipografía Inter desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuración personalizada de colores y tipografía en Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            crema: {
+              base: '#FDF8F2',
+              elevado: '#FFFDF9',
+              borde: '#EAD8C6',
+            },
+            vinotinto: {
+              principal: '#6E1E2E',
+              oscuro: '#521320',
+              suave: '#8C2D40',
+              claro: '#F6E6EA',
+            },
+            naranja: {
+              palido: '#F7C89C',
+              suave: '#FDE8D3',
+              intenso: '#D97724',
+              oscuro: '#7C3E0B',
+            },
+            texto: {
+              primario: '#2B161A',
+              secundario: '#5C4348',
+              tenue: '#7D6167',
+            },
+          },
+          boxShadow: {
+            'parche': '0 10px 30px -10px rgba(110, 30, 46, 0.10)',
+            'parche-lg': '0 20px 45px -15px rgba(82, 19, 32, 0.16)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Estilos complementarios para detalles visuales y accesibilidad */
+    body {
+      background-color: #FDF8F2;
+      color: #2B161A;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Resaltado sutil para enlaces activos en navegación */
+    .nav-link-active {
+      background-color: #6E1E2E;
+      color: #FDF8F2 !important;
+    }
+
+    /* Animación suave de acordeones */
+    .accordion-content {
+      transition: max-rows 0.25s ease, opacity 0.25s ease;
+    }
+
+    /* Evitar desbordamiento horizontal en móviles */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body class="bg-crema-base text-texto-primario antialiased selection:bg-naranja-palido selection:text-vinotinto-oscuro">
+
+  <!-- Barra superior de cumplimiento Google Play -->
+  <div class="bg-vinotinto-oscuro text-crema-base text-xs sm:text-sm py-2.5 px-4 border-b border-vinotinto-suave/30">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-naranja-palido shrink-0"></span>
+        <span>Documento público oficial para <strong>El Parche (Proyecto Parche)</strong> • Cumplimiento Google Play Store</span>
+      </div>
+      <span class="text-naranja-palido font-medium">Acceso libre global • Sin restricciones geográficas</span>
+    </div>
+  </div>
+
+  <!-- Encabezado principal y navegación -->
+  <header class="sticky top-0 z-40 bg-crema-elevado/95 backdrop-blur-md border-b border-crema-borde shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Marca El Parche -->
+        <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-vinotinto-principal text-naranja-palido flex items-center justify-center font-extrabold text-lg shadow-parche group-hover:bg-vinotinto-oscuro transition-colors">
+            EP
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-lg sm:text-xl tracking-tight text-vinotinto-principal">El Parche</span>
+              <span class="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-naranja-suave text-naranja-oscuro border border-naranja-palido">
+                Proyecto Parche
+              </span>
+            </div>
+            <p class="text-xs text-texto-tenue">Política de Privacidad y Seguridad</p>
+          </div>
+        </a>
+
+        <!-- Navegación de escritorio -->
+        <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-1">
+          <a href="#cumplimiento-play" class="px-3 py-2 rounded-xl text-sm font-medium text-texto-secundario hover:text-vinotinto-principal hover:bg-naranja-suave/70 transition-colors">Play Store</a>
+          <a href="#recopilacion-uso" class="px-3 py-2 rounded-xl text-sm font-medium text-texto-secundario hover:text-vinotinto-principal hover:bg-naranja-suave/70 transition-colors">Datos y Uso</a>
+          <a href="#chatparche-ia" class="px-3 py-2 rounded-xl text-sm font-medium text-texto-secundario hover:text-vinotinto-principal hover:bg-naranja-suave/70 transition-colors">chatParche (IA)</a>
+          <a href="#terceros" class="px-3 py-2 rounded-xl text-sm font-medium text-texto-secundario hover:text-vinotinto-principal hover:bg-naranja-suave/70 transition-colors">Terceros</a>
+          <a href="#seguridad-derechos" class="px-3 py-2 rounded-xl text-sm font-medium text-texto-secundario hover:text-vinotinto-principal hover:bg-naranja-suave/70 transition-colors">Seguridad y Derechos</a>
+        </nav>
+
+        <!-- Acciones rápidas y botón menú móvil -->
+        <div class="flex items-center gap-2">
+          <button
+            id="btn-copiar-enlace"
+            type="button"
+            onclick="copiarEnlacePolitica()"
+            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-naranja-suave text-vinotinto-principal border border-naranja-palido hover:bg-naranja-palido transition-colors cursor-pointer"
+            title="Copiar enlace de esta política"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span id="texto-copiar">Copiar enlace</span>
+          </button>
+
+          <button
+            id="btn-menu-movil"
+            type="button"
+            onclick="alternarMenuMovil()"
+            aria-expanded="false"
+            aria-controls="menu-movil"
+            aria-label="Abrir menú de navegación"
+            class="lg:hidden p-2.5 rounded-xl bg-crema-base border border-crema-borde text-vinotinto-principal hover:bg-naranja-suave transition-colors cursor-pointer"
+          >
+            <svg id="icono-hamburguesa" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icono-cerrar" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú desplegable móvil -->
+      <div id="menu-movil" class="hidden lg:hidden pb-4 pt-1 border-t border-crema-borde space-y-1">
+        <a href="#cumplimiento-play" onclick="cerrarMenuMovil()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-texto-primario hover:bg-naranja-suave">Cumplimiento Google Play</a>
+        <a href="#recopilacion-uso" onclick="cerrarMenuMovil()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-texto-primario hover:bg-naranja-suave">Recopilación y Uso de Datos</a>
+        <a href="#chatparche-ia" onclick="cerrarMenuMovil()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-texto-primario hover:bg-naranja-suave">Función chatParche (IA)</a>
+        <a href="#terceros" onclick="cerrarMenuMovil()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-texto-primario hover:bg-naranja-suave">Proveedores y Terceros</a>
+        <a href="#seguridad-derechos" onclick="cerrarMenuMovil()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-texto-primario hover:bg-naranja-suave">Seguridad y Derechos del Usuario</a>
+        <a href="#contacto" onclick="cerrarMenuMovil()" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-texto-primario hover:bg-naranja-suave">Contacto y Eliminación de Datos</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner de notificación al copiar enlace (sin alert) -->
+  <div id="notificacion-toast" class="fixed bottom-5 right-5 z-50 hidden max-w-sm bg-vinotinto-oscuro text-crema-base px-4 py-3 rounded-2xl shadow-parche-lg border border-naranja-palido/40 flex items-center gap-3 text-sm">
+    <span class="w-2.5 h-2.5 rounded-full bg-naranja-palido shrink-0"></span>
+    <span id="mensaje-toast">Enlace de la Política de Privacidad copiado.</span>
+  </div>
+
+  <!-- Hero principal -->
+  <section id="inicio" class="relative overflow-hidden pt-10 pb-14 sm:pt-14 sm:pb-20 border-b border-crema-borde">
+    <!-- Decoración suave en naranja pálido y vinotinto -->
+    <div aria-hidden="true" class="pointer-events-none absolute -top-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-naranja-palido/45 blur-3xl"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-vinotinto-principal/10 blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-naranja-suave border border-naranja-palido text-vinotinto-principal text-xs sm:text-sm font-semibold">
+            <span>Transparencia y Seguridad Digital</span>
+            <span aria-hidden="true">•</span>
+            <span>Aplicación El Parche</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-vinotinto-principal leading-[1.12]">
+            Política de Privacidad y Seguridad de <span class="text-vinotinto-oscuro underline decoration-naranja-palido decoration-4 underline-offset-4">El Parche</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-texto-secundario leading-relaxed max-w-2xl">
+            En <strong>Proyecto Parche</strong> protegemos tu privacidad y la seguridad de tu cuenta cuando utilizas <strong>El Parche</strong>. Este documento explica de forma clara cómo recopilamos, utilizamos, protegemos y compartimos la información vinculada a la autenticación, códigos de verificación, gestión de datos en <strong>Supabase</strong> y conversaciones asistidas por inteligencia artificial en <strong>chatParche</strong> (impulsada por <strong>Groq</strong>).
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a href="#recopilacion-uso" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-vinotinto-principal hover:bg-vinotinto-oscuro text-crema-base font-semibold text-sm shadow-parche transition-all">
+              Explorar tratamiento de datos
+            </a>
+            <a href="#seguridad-derechos" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-naranja-suave hover:bg-naranja-palido text-vinotinto-principal border border-naranja-palido font-semibold text-sm transition-all">
+              Ver medidas de seguridad
+            </a>
+          </div>
+
+          <!-- Metadatos clave -->
+          <div class="pt-3 flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm text-texto-tenue">
+            <div><strong class="text-texto-primario">Aplicación:</strong> El Parche (Proyecto Parche)</div>
+            <div><strong class="text-texto-primario">Última actualización:</strong> 20 de noviembre de 2026</div>
+            <div><strong class="text-texto-primario">Formato:</strong> Página web pública oficial</div>
+          </div>
+        </div>
+
+        <!-- Tarjeta lateral de resumen rápido -->
+        <div class="lg:col-span-5">
+          <div class="bg-crema-elevado rounded-3xl p-6 sm:p-7 border border-crema-borde shadow-parche-lg space-y-5">
+            <div class="flex items-center justify-between border-b border-crema-borde pb-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-naranja-intenso">Resumen de Confianza</span>
+                <h2 class="text-lg font-bold text-vinotinto-principal mt-0.5">Compromisos de El Parche</h2>
+              </div>
+              <span class="w-10 h-10 rounded-2xl bg-naranja-suave flex items-center justify-center text-vinotinto-principal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </span>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-texto-secundario">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-naranja-suave text-vinotinto-principal flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                <span><strong class="text-texto-primario">Acceso global abierto:</strong> Disponible en una URL pública activa con HTTPS, sin geovallado, sin bloqueos regionales y sin requerir inicio de sesión para leer esta política.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-naranja-suave text-vinotinto-principal flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                <span><strong class="text-texto-primario">Autenticación y códigos OTP:</strong> Gestión de cuentas y códigos de verificación mediante <strong>Supabase</strong> para validar el acceso legítimo a la app.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-naranja-suave text-vinotinto-principal flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                <span><strong class="text-texto-primario">Asistente chatParche (Groq):</strong> Los mensajes enviados en el chat de IA se procesan para generar respuestas útiles; evita compartir datos sensibles o confidenciales.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-5 h-5 rounded-full bg-naranja-suave text-vinotinto-principal flex items-center justify-center text-xs font-bold shrink-0">4</span>
+                <span><strong class="text-texto-primario">No vendemos datos personales:</strong> La información se emplea únicamente para operar, mantener y proteger el servicio.</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 bg-naranja-suave/70 border border-naranja-palido rounded-2xl p-3.5 text-xs text-naranja-oscuro leading-relaxed">
+              <strong>Disponibilidad del enlace:</strong> Esta política está vinculada tanto en la ficha de <strong>Google Play Store</strong> como dentro de la aplicación <strong>El Parche</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 1: Cumplimiento de requisitos de Google Play Store -->
+  <section id="cumplimiento-play" class="py-12 sm:py-16 border-b border-crema-borde">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-vinotinto-suave">Requisitos de Google Play Store</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal mt-1">
+          Transparencia y accesibilidad conforme a las políticas de Google Play
+        </h2>
+        <p class="text-texto-secundario mt-2 text-sm sm:text-base leading-relaxed">
+          Para garantizar una revisión ágil, claridad para los usuarios y cumplimiento estricto de los lineamientos de datos de usuario de Google Play, esta Política de Privacidad cumple de manera expresa con cada condición requerida:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Requisito 1 -->
+        <article class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vinotinto-claro text-vinotinto-principal text-xs font-bold mb-3">
+              Condición 01 • URL Activa y SSL
+            </div>
+            <h3 class="text-lg font-bold text-vinotinto-principal mb-2">URL pública activa con certificado SSL válido</h3>
+            <p class="text-sm text-texto-secundario leading-relaxed">
+              Este documento se aloja en una dirección web pública activa (protocolo <strong>HTTPS</strong> con certificado SSL/TLS válido), garantizando una conexión cifrada en tránsito y acceso directo tanto desde la ficha de <strong>El Parche</strong> en Google Play Store como desde el menú o ajustes dentro de la aplicación.
+            </p>
+          </div>
+        </article>
+
+        <!-- Requisito 2 -->
+        <article class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-naranja-suave text-naranja-oscuro text-xs font-bold mb-3">
+              Condición 02 • Alcance Global
+            </div>
+            <h3 class="text-lg font-bold text-vinotinto-principal mb-2">Accesible en todo el mundo sin restricciones ni geovallado</h3>
+            <p class="text-sm text-texto-secundario leading-relaxed">
+              La página está disponible de forma pública a nivel mundial sin bloqueos geográficos, sin geovallado (<em>geofencing</em>), sin muros de registro y sin solicitar autenticación previa para su lectura por parte de usuarios, evaluadores o sistemas automatizados de revisión.
+            </p>
+          </div>
+        </article>
+
+        <!-- Requisito 3 -->
+        <article class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-naranja-suave text-naranja-oscuro text-xs font-bold mb-3">
+              Condición 03 • Formato Web Estándar
+            </div>
+            <h3 class="text-lg font-bold text-vinotinto-principal mb-2">Página web estándar no editable (sin PDF ni descargas obligatorias)</h3>
+            <p class="text-sm text-texto-secundario leading-relaxed">
+              Se presenta como una página web estándar de solo lectura para los visitantes, no como un archivo PDF descargable ni como un documento editable público, asegurando integridad textual y lectura fluida en navegadores móviles y de escritorio.
+            </p>
+          </div>
+        </article>
+
+        <!-- Requisito 4 -->
+        <article class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vinotinto-claro text-vinotinto-principal text-xs font-bold mb-3">
+              Condición 04 • Divulgación Específica
+            </div>
+            <h3 class="text-lg font-bold text-vinotinto-principal mb-2">Específica para El Parche y exhaustiva en el ciclo de datos</h3>
+            <p class="text-sm text-texto-secundario leading-relaxed">
+              Aplica directamente a <strong>El Parche (Proyecto Parche)</strong> y detalla de forma exhaustiva qué datos se recopilan, cómo se utilizan para autenticación, códigos de verificación y asistencia con IA, qué medidas de seguridad los resguardan y con qué proveedores terceros se interactúa.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 2: Pestañas interactivas de Recopilación, Autenticación y Uso de Datos -->
+  <section id="recopilacion-uso" class="py-12 sm:py-16 border-b border-crema-borde bg-naranja-suave/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-vinotinto-suave">Ciclo de Vida de la Información</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal mt-1">
+            ¿Qué datos recopilamos y cómo los utilizamos en El Parche?
+          </h2>
+        </div>
+        <p class="text-sm text-texto-secundario max-w-md">
+          Selecciona cada pestaña para revisar el detalle operativo de cuentas, códigos de verificación y uso de datos.
+        </p>
+      </div>
+
+      <!-- Pestañas (Tabs) -->
+      <div role="tablist" aria-label="Categorías de tratamiento de datos" class="flex flex-wrap gap-2 mb-6">
+        <button
+          role="tab"
+          id="tab-cuenta"
+          aria-selected="true"
+          aria-controls="panel-cuenta"
+          onclick="cambiarPestana('cuenta')"
+          class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-semibold bg-vinotinto-principal text-crema-base shadow-parche transition-all cursor-pointer"
+        >
+          1. Autenticación y Cuenta
+        </button>
+        <button
+          role="tab"
+          id="tab-otp"
+          aria-selected="false"
+          aria-controls="panel-otp"
+          onclick="cambiarPestana('otp')"
+          class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-semibold bg-crema-elevado text-vinotinto-principal border border-crema-borde hover:bg-naranja-suave transition-all cursor-pointer"
+        >
+          2. Códigos de Verificación (OTP)
+        </button>
+        <button
+          role="tab"
+          id="tab-uso"
+          aria-selected="false"
+          aria-controls="panel-uso"
+          onclick="cambiarPestana('uso')"
+          class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-semibold bg-crema-elevado text-vinotinto-principal border border-crema-borde hover:bg-naranja-suave transition-all cursor-pointer"
+        >
+          3. Finalidades y Uso Legítimo
+        </button>
+        <button
+          role="tab"
+          id="tab-dispositivo"
+          aria-selected="false"
+          aria-controls="panel-dispositivo"
+          onclick="cambiarPestana('dispositivo')"
+          class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-semibold bg-crema-elevado text-vinotinto-principal border border-crema-borde hover:bg-naranja-suave transition-all cursor-pointer"
+        >
+          4. Diagnóstico y Funcionamiento
+        </button>
+      </div>
+
+      <!-- Paneles de contenido de pestañas -->
+      <div class="bg-crema-elevado rounded-3xl p-6 sm:p-8 border border-crema-borde shadow-parche">
+        <!-- Panel 1 -->
+        <div id="panel-cuenta" role="tabpanel" aria-labelledby="tab-cuenta" class="tab-panel space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="text-xl font-bold text-vinotinto-principal">Autenticación de usuarios y gestión de perfil</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-vinotinto-claro text-vinotinto-principal">Infraestructura: Supabase</span>
+          </div>
+          <p class="text-sm sm:text-base text-texto-secundario leading-relaxed">
+            Para crear una cuenta, iniciar sesión y mantener tu sesión activa en <strong>El Parche</strong>, utilizamos servicios de autenticación gestionados a través de <strong>Supabase</strong>. Dependiendo del método de acceso habilitado en la aplicación, podemos procesar:
+          </p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-texto-primario">
+            <li class="p-4 rounded-2xl bg-crema-base border border-crema-borde">
+              <strong class="block text-vinotinto-principal mb-1">Credenciales y contacto de acceso</strong>
+              Dirección de correo electrónico u otros identificadores de cuenta necesarios para registrar, autenticar y recuperar el acceso.
+            </li>
+            <li class="p-4 rounded-2xl bg-crema-base border border-crema-borde">
+              <strong class="block text-vinotinto-principal mb-1">Identificadores y tokens de sesión</strong>
+              Identificador único de usuario (<em>User ID</em>) y tokens de autenticación para validar tus solicitudes dentro de la app de forma segura.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Panel 2 -->
+        <div id="panel-otp" role="tabpanel" aria-labelledby="tab-otp" class="tab-panel hidden space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="text-xl font-bold text-vinotinto-principal">Códigos de verificación de un solo uso (OTP)</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-naranja-suave text-naranja-oscuro">Prevención de suplantación</span>
+          </div>
+          <p class="text-sm sm:text-base text-texto-secundario leading-relaxed">
+            Cuando <strong>El Parche</strong> envía un código de verificación para confirmar tu identidad, validar tu cuenta o completar un inicio de sesión seguro, dicho código se utiliza exclusivamente con fines de verificación técnica y antifraude:
+          </p>
+          <ul class="space-y-2.5 text-sm text-texto-secundario">
+            <li class="flex items-start gap-2.5">
+              <span class="text-vinotinto-principal font-bold">•</span>
+              <span>Los códigos de verificación tienen vigencia limitada y se invalidan una vez utilizados o al expirar su ventana temporal.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-vinotinto-principal font-bold">•</span>
+              <span>Ayudan a evitar accesos no autorizados, registros automatizados abusivos y suplantación de identidad.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-vinotinto-principal font-bold">•</span>
+              <span>Recomendamos no compartir nunca tus códigos de verificación con terceros ni con el asistente de chat.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Panel 3 -->
+        <div id="panel-uso" role="tabpanel" aria-labelledby="tab-uso" class="tab-panel hidden space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="text-xl font-bold text-vinotinto-principal">¿Para qué usamos los datos recopilados?</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-vinotinto-claro text-vinotinto-principal">Finalidad limitada</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 rounded-2xl bg-crema-base border border-crema-borde">
+              <h4 class="font-bold text-vinotinto-principal mb-1.5">Prestación del servicio</h4>
+              <p class="text-texto-secundario leading-relaxed">Permitir el inicio de sesión, guardar preferencias esenciales de la cuenta y habilitar las funciones de El Parche y chatParche.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-crema-base border border-crema-borde">
+              <h4 class="font-bold text-vinotinto-principal mb-1.5">Seguridad e integridad</h4>
+              <p class="text-texto-secundario leading-relaxed">Detectar abusos, prevenir accesos indebidos, validar códigos de verificación y mantener la estabilidad de la plataforma.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-crema-base border border-crema-borde">
+              <h4 class="font-bold text-vinotinto-principal mb-1.5">Soporte y mejora</h4>
+              <p class="text-texto-secundario leading-relaxed">Resolver incidencias reportadas por usuarios y mejorar el rendimiento general y la usabilidad de la aplicación.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4 -->
+        <div id="panel-dispositivo" role="tabpanel" aria-labelledby="tab-dispositivo" class="tab-panel hidden space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="text-xl font-bold text-vinotinto-principal">Datos técnicos y operacionales de la aplicación</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-naranja-suave text-naranja-oscuro">Estabilidad y compatibilidad</span>
+          </div>
+          <p class="text-sm sm:text-base text-texto-secundario leading-relaxed">
+            Durante el uso normal de la aplicación pueden generarse registros técnicos básicos (como estado de conexión, errores de red o respuesta del servidor) necesarios para diagnosticar fallos, evitar caídas del servicio y asegurar que la app funcione correctamente en distintos dispositivos Android.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Función chatParche e Inteligencia Artificial (Groq) -->
+  <section id="chatparche-ia" class="py-12 sm:py-16 border-b border-crema-borde">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-crema-elevado rounded-3xl p-6 sm:p-10 border border-crema-borde shadow-parche-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-naranja-suave border border-naranja-palido text-vinotinto-principal text-xs font-bold">
+              Inteligencia Artificial • chatParche
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal">
+              Cómo funciona la privacidad en <span class="text-vinotinto-oscuro">chatParche</span> (procesamiento con Groq)
+            </h2>
+            <p class="text-sm sm:text-base text-texto-secundario leading-relaxed">
+              <strong>chatParche</strong> es la función de conversación asistida por inteligencia artificial integrada en <strong>El Parche</strong>. Cuando envías un mensaje o consulta en <strong>chatParche</strong>, el texto de tu solicitud se transmite a través de nuestra infraestructura hacia la API de <strong>Groq</strong> para generar una respuesta automatizada.
+            </p>
+            <p class="text-sm sm:text-base text-texto-secundario leading-relaxed">
+              Al igual que ocurre con cualquier sistema de lenguaje basado en modelos de inteligencia artificial, las respuestas generadas son automáticas y pueden contener imprecisiones; por ello, te recomendamos verificar información crítica antes de tomar decisiones basadas en ellas.
+            </p>
+          </div>
+
+          <div class="lg:col-span-5 space-y-4">
+            <div class="rounded-2xl p-5 bg-vinotinto-principal text-crema-base shadow-parche">
+              <h3 class="font-bold text-base sm:text-lg text-naranja-palido mb-2">Recomendación clave al usar chatParche</h3>
+              <p class="text-sm text-crema-base/95 leading-relaxed">
+                <strong>No incluyas datos sensibles ni confidenciales</strong> en tus mensajes de chat: evita compartir contraseñas, códigos de verificación, documentos de identidad, datos financieros, información médica privada ni datos personales de terceros.
+              </p>
+            </div>
+
+            <div class="rounded-2xl p-5 bg-naranja-suave/75 border border-naranja-palido text-texto-primario">
+              <h3 class="font-bold text-sm sm:text-base text-vinotinto-principal mb-1.5">Rol del proveedor de inferencia (Groq)</h3>
+              <p class="text-xs sm:text-sm text-texto-secundario leading-relaxed">
+                <strong>Groq</strong> actúa como proveedor tecnológico encargado de ejecutar la inferencia del modelo para devolver la respuesta solicitada en <strong>chatParche</strong>, sujeto a sus propios estándares técnicos y términos de servicio aplicables al procesamiento de API.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: Divulgación con terceros y proveedores (Supabase y Groq) -->
+  <section id="terceros" class="py-12 sm:py-16 border-b border-crema-borde">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-vinotinto-suave">Compartición y Terceros</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal mt-1">
+          ¿Con qué tipos de terceros compartimos o transmitimos información?
+        </h2>
+        <p class="text-sm sm:text-base text-texto-secundario mt-2 leading-relaxed">
+          <strong>Proyecto Parche no vende ni alquila tus datos personales a corredores de datos ni anunciantes externos.</strong> Únicamente transmitimos o alojamos información con proveedores de infraestructura tecnológica indispensables para operar <strong>El Parche</strong>:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Proveedor 1: Supabase -->
+        <div class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col">
+          <div class="w-11 h-11 rounded-2xl bg-vinotinto-claro text-vinotinto-principal font-extrabold flex items-center justify-center mb-4">
+            SB
+          </div>
+          <h3 class="text-lg font-bold text-vinotinto-principal">Supabase</h3>
+          <span class="text-xs font-semibold text-naranja-intenso mb-3">Autenticación, cuentas y base de datos</span>
+          <p class="text-sm text-texto-secundario leading-relaxed flex-1">
+            Utilizado para gestionar el registro/autenticación de usuarios, sesiones y almacenamiento estructurado de datos de aplicación vinculados a la cuenta, bajo controles de acceso y cifrado.
+          </p>
+        </div>
+
+        <!-- Proveedor 2: Groq -->
+        <div class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col">
+          <div class="w-11 h-11 rounded-2xl bg-naranja-suave text-vinotinto-principal font-extrabold flex items-center justify-center mb-4">
+            GQ
+          </div>
+          <h3 class="text-lg font-bold text-vinotinto-principal">Groq</h3>
+          <span class="text-xs font-semibold text-naranja-intenso mb-3">Procesamiento de IA para chatParche</span>
+          <p class="text-sm text-texto-secundario leading-relaxed flex-1">
+            Utilizado para procesar las indicaciones (<em>prompts</em>) enviadas por el usuario en <strong>chatParche</strong> y generar respuestas de inteligencia artificial con baja latencia.
+          </p>
+        </div>
+
+        <!-- Proveedor 3: Requerimientos legales / seguridad -->
+        <div class="bg-crema-elevado rounded-2xl p-6 border border-crema-borde shadow-parche flex flex-col">
+          <div class="w-11 h-11 rounded-2xl bg-vinotinto-claro text-vinotinto-principal font-extrabold flex items-center justify-center mb-4">
+            LG
+          </div>
+          <h3 class="text-lg font-bold text-vinotinto-principal">Autoridades o seguridad</h3>
+          <span class="text-xs font-semibold text-naranja-intenso mb-3">Obligación legal y defensa de derechos</span>
+          <p class="text-sm text-texto-secundario leading-relaxed flex-1">
+            Solo cuando exista un requerimiento legal válido, orden de autoridad competente o necesidad legítima de investigar fraudes, incidentes de seguridad o usos indebidos de la plataforma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 5: Seguridad y Derechos del Usuario (Tarjetas + Acordeones) -->
+  <section id="seguridad-derechos" class="py-12 sm:py-16 border-b border-crema-borde bg-naranja-suave/25">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+        <!-- Columna izquierda: Tarjetas de seguridad -->
+        <div class="lg:col-span-6 space-y-5">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-vinotinto-suave">Defensa Técnica y Operativa</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal mt-1">
+              Medidas de seguridad en El Parche
+            </h2>
+            <p class="text-sm sm:text-base text-texto-secundario mt-2 leading-relaxed">
+              Aplicamos salvaguardas técnicas y organizativas proporcionales a los riesgos de la aplicación para proteger la integridad y confidencialidad de la información:
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-crema-elevado rounded-2xl p-5 border border-crema-borde shadow-parche">
+              <h3 class="font-bold text-vinotinto-principal text-base mb-1.5">Cifrado en tránsito (HTTPS/TLS)</h3>
+              <p class="text-xs sm:text-sm text-texto-secundario leading-relaxed">
+                Las comunicaciones entre la app <strong>El Parche</strong>, <strong>Supabase</strong> y los servicios de procesamiento viajan cifradas mediante protocolos seguros.
+              </p>
+            </div>
+
+            <div class="bg-crema-elevado rounded-2xl p-5 border border-crema-borde shadow-parche">
+              <h3 class="font-bold text-vinotinto-principal text-base mb-1.5">Control de acceso y sesiones</h3>
+              <p class="text-xs sm:text-sm text-texto-secundario leading-relaxed">
+                Uso de autenticación basada en tokens y políticas de acceso restringido para que cada usuario acceda únicamente a lo que le corresponde.
+              </p>
+            </div>
+
+            <div class="bg-crema-elevado rounded-2xl p-5 border border-crema-borde shadow-parche">
+              <h3 class="font-bold text-vinotinto-principal text-base mb-1.5">Verificación temporal de códigos</h3>
+              <p class="text-xs sm:text-sm text-texto-secundario leading-relaxed">
+                Los códigos de verificación se emplean para validar identidad y prevenir accesos automatizados no autorizados.
+              </p>
+            </div>
+
+            <div class="bg-crema-elevado rounded-2xl p-5 border border-crema-borde shadow-parche">
+              <h3 class="font-bold text-vinotinto-principal text-base mb-1.5">Mejora continua</h3>
+              <p class="text-xs sm:text-sm text-texto-secundario leading-relaxed">
+                Ningún sistema conectado a internet es infalible al 100 %, por lo que revisamos periódicamente configuraciones y dependencias para reducir vulnerabilidades.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Acordeones de derechos, retención, menores y cambios -->
+        <div class="lg:col-span-6 space-y-5">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-vinotinto-suave">Control del Usuario</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal mt-1">
+              Tus derechos y preguntas frecuentes
+            </h2>
+            <p class="text-sm sm:text-base text-texto-secundario mt-2 leading-relaxed">
+              Consulta cómo ejercer tus derechos sobre tus datos, cuánto tiempo se conservan y cómo actualizamos esta política.
+            </p>
+          </div>
+
+          <div class="space-y-3" id="acordeones-container">
+            <!-- Acordeón 1 -->
+            <div class="bg-crema-elevado rounded-2xl border border-crema-borde overflow-hidden shadow-parche">
+              <button
+                type="button"
+                onclick="alternarAcordeon(0)"
+                aria-expanded="true"
+                class="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-vinotinto-principal hover:bg-naranja-suave/40 transition-colors cursor-pointer"
+              >
+                <span class="text-sm sm:text-base">Acceso, actualización y eliminación de datos o cuenta</span>
+                <span id="icono-acordeon-0" class="text-xl font-bold text-vinotinto-principal shrink-0">−</span>
+              </button>
+              <div id="contenido-acordeon-0" class="px-5 pb-5 text-sm text-texto-secundario leading-relaxed border-t border-crema-borde/70 pt-3">
+                Puedes solicitar acceso a los datos asociados a tu cuenta, pedir correcciones o solicitar la eliminación de tu cuenta y datos vinculados escribiendo a nuestro canal oficial de contacto indicado en este documento. Una vez verificada tu solicitud, tramitaremos la eliminación conforme a nuestros procedimientos técnicos y plazos legales aplicables.
+              </div>
+            </div>
+
+            <!-- Acordeón 2 -->
+            <div class="bg-crema-elevado rounded-2xl border border-crema-borde overflow-hidden shadow-parche">
+              <button
+                type="button"
+                onclick="alternarAcordeon(1)"
+                aria-expanded="false"
+                class="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-vinotinto-principal hover:bg-naranja-suave/40 transition-colors cursor-pointer"
+              >
+                <span class="text-sm sm:text-base">Conservación y retención de la información</span>
+                <span id="icono-acordeon-1" class="text-xl font-bold text-vinotinto-principal shrink-0">+</span>
+              </button>
+              <div id="contenido-acordeon-1" class="hidden px-5 pb-5 text-sm text-texto-secundario leading-relaxed border-t border-crema-borde/70 pt-3">
+                Conservamos los datos de cuenta únicamente mientras la cuenta permanezca activa o sea necesaria para prestar el servicio de <strong>El Parche</strong>, cumplir obligaciones legales, resolver disputas o hacer cumplir nuestros términos y medidas de seguridad.
+              </div>
+            </div>
+
+            <!-- Acordeón 3 -->
+            <div class="bg-crema-elevado rounded-2xl border border-crema-borde overflow-hidden shadow-parche">
+              <button
+                type="button"
+                onclick="alternarAcordeon(2)"
+                aria-expanded="false"
+                class="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-vinotinto-principal hover:bg-naranja-suave/40 transition-colors cursor-pointer"
+              >
+                <span class="text-sm sm:text-base">Privacidad de menores de edad</span>
+                <span id="icono-acordeon-2" class="text-xl font-bold text-vinotinto-principal shrink-0">+</span>
+              </button>
+              <div id="contenido-acordeon-2" class="hidden px-5 pb-5 text-sm text-texto-secundario leading-relaxed border-t border-crema-borde/70 pt-3">
+                <strong>El Parche</strong> está diseñado para un público general responsable y no busca recopilar deliberadamente información personal de niños sin la autorización o supervisión exigida por la normativa aplicable. Si detectas que un menor ha proporcionado datos sin la debida autorización, contáctanos para proceder a su revisión y eliminación.
+              </div>
+            </div>
+
+            <!-- Acordeón 4 -->
+            <div class="bg-crema-elevado rounded-2xl border border-crema-borde overflow-hidden shadow-parche">
+              <button
+                type="button"
+                onclick="alternarAcordeon(3)"
+                aria-expanded="false"
+                class="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-vinotinto-principal hover:bg-naranja-suave/40 transition-colors cursor-pointer"
+              >
+                <span class="text-sm sm:text-base">Modificaciones a esta Política de Privacidad</span>
+                <span id="icono-acordeon-3" class="text-xl font-bold text-vinotinto-principal shrink-0">+</span>
+              </button>
+              <div id="contenido-acordeon-3" class="hidden px-5 pb-5 text-sm text-texto-secundario leading-relaxed border-t border-crema-borde/70 pt-3">
+                Podemos actualizar esta Política de Privacidad cuando incorporemos nuevas funciones en <strong>El Parche</strong>, actualicemos proveedores o ajustemos el documento a requisitos normativos o de Google Play. Publicaremos la versión vigente en esta misma URL pública actualizando la fecha de última modificación.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 6: Contacto y Solicitudes de Privacidad -->
+  <section id="contacto" class="py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-crema-elevado rounded-3xl p-6 sm:p-10 border border-crema-borde shadow-parche-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-vinotinto-suave">Atención y Privacidad</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-vinotinto-principal">
+              Contacto de Proyecto Parche
+            </h2>
+            <p class="text-sm sm:text-base text-texto-secundario leading-relaxed">
+              Si tienes preguntas sobre esta Política de Privacidad, deseas solicitar la eliminación de tu cuenta o tus datos o necesitas reportar un asunto de seguridad relacionado con <strong>El Parche</strong> o <strong>chatParche</strong>, puedes comunicarte con el equipo de <strong>Proyecto Parche</strong> a través del correo de contacto oficial:
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a
+                href="mailto:sierrabarreramariacamila02@gmailcom?subject=Consulta%20de%20Privacidad%20-%20El%20Parche"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-vinotinto-principal hover:bg-vinotinto-oscuro text-crema-base font-semibold text-sm shadow-parche transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>privacidad@proyectoparche.app</span>
+              </a>
+
+              <button
+                type="button"
+                onclick="copiarCorreo()"
+                class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-naranja-suave hover:bg-naranja-palido text-vinotinto-principal border border-naranja-palido font-semibold text-sm transition-colors cursor-pointer"
+              >
+                <span>Copiar correo</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-naranja-suave/70 border border-naranja-palido rounded-2xl p-5 sm:p-6 space-y-2.5">
+            <h3 class="font-bold text-vinotinto-principal text-base">Para agilizar tu solicitud</h3>
+            <p class="text-xs sm:text-sm text-texto-secundario leading-relaxed">
+              Al escribirnos sobre tu cuenta o tus datos en <strong>El Parche</strong>, indica:
+            </p>
+            <ul class="text-xs sm:text-sm text-texto-primario space-y-1.5 list-disc list-inside">
+              <li>El correo o identificador vinculado a tu cuenta.</li>
+              <li>El tipo de solicitud (acceso, corrección, eliminación de cuenta o consulta de seguridad).</li>
+              <li>Una descripción breve sin incluir contraseñas ni códigos OTP activos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página informativo -->
+  <footer class="bg-vinotinto-oscuro text-crema-base pt-12 pb-8 border-t border-vinotinto-suave/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-crema-base/15">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-9 h-9 rounded-xl bg-naranja-palido text-vinotinto-oscuro font-extrabold flex items-center justify-center text-sm">
+              EP
+            </span>
+            <div>
+              <p class="font-extrabold text-lg text-crema-base leading-none">El Parche</p>
+              <p class="text-xs text-naranja-palido mt-1">Proyecto Parche • Privacidad y Seguridad</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-crema-base/80 leading-relaxed max-w-md">
+            Documento oficial de Política de Privacidad y Seguridad para la aplicación El Parche, enlazado desde Google Play Store y desde el interior de la aplicación, accesible globalmente sin restricciones.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-naranja-palido">Secciones del documento</h4>
+          <ul class="space-y-1.5 text-sm text-crema-base/85">
+            <li><a href="#cumplimiento-play" class="hover:text-naranja-palido transition-colors">Requisitos de Google Play Store</a></li>
+            <li><a href="#recopilacion-uso" class="hover:text-naranja-palido transition-colors">Autenticación, OTP y uso de datos</a></li>
+            <li><a href="#chatparche-ia" class="hover:text-naranja-palido transition-colors">Función chatParche e IA (Groq)</a></li>
+            <li><a href="#terceros" class="hover:text-naranja-palido transition-colors">Proveedores: Supabase y Groq</a></li>
+            <li><a href="#seguridad-derechos" class="hover:text-naranja-palido transition-colors">Seguridad y derechos del usuario</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-naranja-palido">Información legal</h4>
+          <p class="text-xs sm:text-sm text-crema-base/85"><strong>App:</strong> El Parche (Proyecto Parche)</p>
+          <p class="text-xs sm:text-sm text-crema-base/85"><strong>Vigencia:</strong> 20 de noviembre de 2026</p>
+          <p class="text-xs sm:text-sm text-crema-base/85"><strong>Acceso:</strong> Público global (HTTPS)</p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-crema-base/75">
+        <p>© 2026 Proyecto Parche — El Parche. Todos los derechos reservados.</p>
+        <p>Política de Privacidad válida para ficha de Google Play y aplicación El Parche.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts interactivos: pestañas, acordeones, menú móvil y copiado al portapapeles -->
+  <script>
+    /**
+     * Alterna la visibilidad del menú de navegación en dispositivos móviles.
+     */
+    function alternarMenuMovil() {
+      try {
+        const menu = document.getElementById('menu-movil');
+        const boton = document.getElementById('btn-menu-movil');
+        const iconoHamb = document.getElementById('icono-hamburguesa');
+        const iconoCerrar = document.getElementById('icono-cerrar');
+
+        if (!menu || !boton) return;
+
+        const estaOculto = menu.classList.contains('hidden');
+        if (estaOculto) {
+          menu.classList.remove('hidden');
+          boton.setAttribute('aria-expanded', 'true');
+          iconoHamb?.classList.add('hidden');
+          iconoCerrar?.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          boton.setAttribute('aria-expanded', 'false');
+          iconoHamb?.classList.remove('hidden');
+          iconoCerrar?.classList.add('hidden');
+        }
+      } catch (error) {
+        console.error('Error al alternar el menú móvil:', error);
+      }
+    }
+
+    /**
+     * Cierra el menú móvil al seleccionar un enlace.
+     */
+    function cerrarMenuMovil() {
+      try {
+        const menu = document.getElementById('menu-movil');
+        const boton = document.getElementById('btn-menu-movil');
+        const iconoHamb = document.getElementById('icono-hamburguesa');
+        const iconoCerrar = document.getElementById('icono-cerrar');
+
+        menu?.classList.add('hidden');
+        boton?.setAttribute('aria-expanded', 'false');
+        iconoHamb?.classList.remove('hidden');
+        iconoCerrar?.classList.add('hidden');
+      } catch (error) {
+        console.error('Error al cerrar el menú móvil:', error);
+      }
+    }
+
+    /**
+     * Cambia entre las pestañas de recopilación y uso de datos.
+     * @param {string} claveTab - Identificador de la pestaña ('cuenta', 'otp', 'uso', 'dispositivo').
+     */
+    function cambiarPestana(claveTab) {
+      try {
+        const pestanas = ['cuenta', 'otp', 'uso', 'dispositivo'];
+
+        pestanas.forEach((id) => {
+          const boton = document.getElementById(`tab-${id}`);
+          const panel = document.getElementById(`panel-${id}`);
+          const activa = id === claveTab;
+
+          if (boton) {
+            boton.setAttribute('aria-selected', activa ? 'true' : 'false');
+            if (activa) {
+              boton.className = 'tab-btn px-4 py-2.5 rounded-2xl text-sm font-semibold bg-vinotinto-principal text-crema-base shadow-parche transition-all cursor-pointer';
+            } else {
+              boton.className = 'tab-btn px-4 py-2.5 rounded-2xl text-sm font-semibold bg-crema-elevado text-vinotinto-principal border border-crema-borde hover:bg-naranja-suave transition-all cursor-pointer';
+            }
+          }
+
+          if (panel) {
+            if (activa) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          }
+        });
+      } catch (error) {
+        console.error('Error al cambiar de pestaña:', error);
+      }
+    }
+
+    /**
+     * Expande o contrae los acordeones de preguntas frecuentes y derechos.
+     * @param {number} indice - Índice del acordeón.
+     */
+    function alternarAcordeon(indice) {
+      try {
+        const contenido = document.getElementById(`contenido-acordeon-${indice}`);
+        const icono = document.getElementById(`icono-acordeon-${indice}`);
+        if (!contenido || !icono) return;
+
+        const estaOculto = contenido.classList.contains('hidden');
+        const boton = contenido.previousElementSibling;
+
+        if (estaOculto) {
+          contenido.classList.remove('hidden');
+          icono.textContent = '−';
+          boton?.setAttribute('aria-expanded', 'true');
+        } else {
+          contenido.classList.add('hidden');
+          icono.textContent = '+';
+          boton?.setAttribute('aria-expanded', 'false');
+        }
+      } catch (error) {
+        console.error('Error al alternar acordeón:', error);
+      }
+    }
+
+    /**
+     * Muestra una notificación visual temporal en pantalla sin usar alert().
+     * @param {string} mensaje - Texto a mostrar.
+     */
+    function mostrarNotificacion(mensaje) {
+      try {
+        const toast = document.getElementById('notificacion-toast');
+        const textoToast = document.getElementById('mensaje-toast');
+        if (!toast || !textoToast) return;
+
+        textoToast.textContent = mensaje;
+        toast.classList.remove('hidden');
+
+        clearTimeout(window.__toastTimeout);
+        window.__toastTimeout = setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3200);
+      } catch (error) {
+        console.error('Error al mostrar notificación:', error);
+      }
+    }
+
+    /**
+     * Copia texto al portapapeles utilizando execCommand como método compatible en iframes.
+     * @param {string} texto - Cadena a copiar.
+     * @param {string} mensajeExito - Mensaje mostrado al copiar.
+     */
+    function copiarAlPortapapeles(texto, mensajeExito) {
+      try {
+        const inputTemporal = document.createElement('input');
+        inputTemporal.value = texto;
+        inputTemporal.setAttribute('readonly', '');
+        inputTemporal.style.position = 'absolute';
+        inputTemporal.style.left = '-9999px';
+        document.body.appendChild(inputTemporal);
+        inputTemporal.select();
+        document.execCommand('copy');
+        document.body.removeChild(inputTemporal);
+
+        mostrarNotificacion(mensajeExito);
+      } catch (error) {
+        console.error('Error al copiar al portapapeles:', error);
+        mostrarNotificacion('No se pudo copiar automáticamente. Puedes seleccionar y copiar el texto.');
+      }
+    }
+
+    /**
+     * Copia la URL actual de la política de privacidad.
+     */
+    function copiarEnlacePolitica() {
+      const urlActual = window.location.href || 'https://proyectoparche.app/politica-de-privacidad';
+      copiarAlPortapapeles(urlActual, 'Enlace de la Política de Privacidad copiado.');
+    }
+
+    /**
+     * Copia el correo de contacto de privacidad de El Parche.
+     */
+    function copiarCorreo() {
+      copiarAlPortapapeles('privacidad@proyectoparche.app', 'Correo privacidad@proyectoparche.app copiado.');
+    }
+  </script>
+</body>
+</html>
